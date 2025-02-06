@@ -1,5 +1,5 @@
-const apiEndpoint =
-  "http://20.107.252.123:8080/api/tasks";
+const apiEndpoint = 
+  "https://backend-210-300621-alexis-girard.blacksky-0acd1103.westeurope.azurecontainerapps.io/api/tasks";
 
 $(document).ready(function () {
   // Charger les tâches au démarrage
