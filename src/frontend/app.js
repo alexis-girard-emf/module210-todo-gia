@@ -118,7 +118,7 @@ $(document).ready(function () {
 async function fetchTaskCount() {
   try {
       // URL de ton Azure Function
-      const response = await fetch("210-functionapp-girard.azurewebsites.net");
+      const response = await fetch("https://210-functionapp-girard.azurewebsites.net/api/TriggerHttp");
       
       // Vérifier si la requête a réussi
       if (!response.ok) {
