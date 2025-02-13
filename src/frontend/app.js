@@ -114,3 +114,26 @@ $(document).ready(function () {
     }
   }
 });
+
+async function fetchTaskCount() {
+  try {
+      // URL de ton Azure Function
+      const response = await fetch("210-functionapp-girard.azurewebsites.net");
+      
+      // Vérifier si la requête a réussi
+      if (!response.ok) {
+          throw new Error("Erreur lors de la récupération du nombre de tâches");
+      }
+
+      // Lire la réponse et mettre à jour l'affichage
+      const taskCount = await response.text();
+      document.getElementById("taskCount").textContent = taskCount;
+  } catch (error) {
+      console.error("Erreur :", error);
+      document.getElementById("taskCount").textContent = "Erreur";
+  }
+}
+
+// Charger le nombre de tâches au démarrage de la page
+document.addEventListener("DOMContentLoaded", fetchTaskCount);
+
