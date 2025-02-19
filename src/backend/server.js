@@ -4,6 +4,7 @@ const port = 8080;
 const path = require('path');
 const bodyParser = require("body-parser");
 // autres importsconst 
+//On test des trucs
 cors = require("cors");
 
 app.use(cors());
