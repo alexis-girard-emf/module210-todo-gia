@@ -2,8 +2,8 @@ name: Build and save my Docker image to a regitry
 
 on:
   push:
-    branches:
-      - main  # Déclenchement lorsque le code est poussé sur main
+    paths:
+      - 'src/backend/**'  # Déclenchement lorsque le code est poussé sur main
 
 env:
   REG_NAME: "exo.container-registry.com" # Nom du registre sans "azurecr.io"
@@ -24,7 +24,7 @@ jobs:
       - name: build docker image
         run: |
           cd ./src/backend
-          docker build -t $IMAGE_NAME
+          docker build -t $IMAGE_NAME .
 
       - name: tag image
         run: |
