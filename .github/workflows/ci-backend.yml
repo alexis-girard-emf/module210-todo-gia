@@ -23,7 +23,12 @@ jobs:
 
       - name: build docker image
         run: |
-          docker build $REG_NAME/c213-emf/$IMAGE_NAME:gia
+          cd ./src/backend
+          docker build -t $IMAGE_NAME:gia
+
+      - name: tag image
+        run: |
+          docker tag $IMAGE_NAME $REG_NAME/c213-emf/$IMAGE_NAME:gia
 
       - name: push image 
         run: |
