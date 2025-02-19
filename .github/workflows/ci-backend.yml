@@ -24,7 +24,7 @@ jobs:
       - name: build docker image
         run: |
           cd ./src/backend
-          docker build -t $IMAGE_NAME:gia
+          image build -t $IMAGE_NAME:gia
 
       - name: tag image
         run: |
