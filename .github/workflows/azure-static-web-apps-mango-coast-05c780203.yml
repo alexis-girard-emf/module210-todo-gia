@@ -58,6 +58,7 @@ jobs:
         with: 
           urls: |
             https://todo.alexisgirard.emf-informatique.ch/
+          temporaryPublicStorage: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
