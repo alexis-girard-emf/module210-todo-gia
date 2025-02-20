@@ -1,7 +1,11 @@
 /* Général */
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #f0f4fd, #cce5ff);
+  font-family: "Courier New", Courier, monospace;
+  background-color: black;
+  background-image: radial-gradient(
+    rgba(0, 150, 0, 0.75), black 120%
+  );
+  height: 100vh;
   margin: 0;
   padding: 0;
   display: flex;
@@ -24,20 +28,26 @@ body {
 
 /* Conteneur principal */
 .app-container {
-  background: #fff;
+  border: 3px solid rgba(0, 255, 0, 0.5);  /* Bordure verte, comme les anciennes interfaces de terminal */
   padding: 20px;
-  border-radius: 12px;
+  background-color: black;   /* Fond noir pour simuler un terminal */            /* Texte vert fluorescent */
+  font-family: 'Courier New', monospace; 
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);  /* Légère ombre verte pour l'effet "lueur" */
+  background: black;
+  padding: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
   text-align: center;
+
 }
 
 /* Titre */
 .app-container h1 {
+  text-align: left;
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #007bff;
+  color: white;
   font-weight: bold;
 }
 
@@ -48,12 +58,20 @@ body {
   margin-bottom: 20px;
 }
 
+#todo-input::before {
+  content: ">";
+  color: white;  /* Vert pour rester dans le thème du terminal */
+  margin-right: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 #todo-input {
+  font-family: "Courier New", Courier, monospace;
   flex: 1;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px 0 0 8px;
+  border: 1px solid rgba(0, 255, 0, 0.5);
   outline: none;
   transition: border-color 0.3s ease;
 }
@@ -64,16 +82,15 @@ body {
 
 button {
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: black;
   color: white;
   border: none;
-  border-radius: 0 8px 8px 0;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: rgba(0, 255, 0, 0.5);
 }
 
 /* Liste des tâches */
@@ -85,14 +102,22 @@ button:hover {
 
 #todo-list li {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   padding: 10px 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 0, 0.5);
   margin-bottom: 10px;
-  background: #f9f9f9;
+  background: black;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: white;
+}
+
+#todo-list li::before {
+  content: ">";
+  color: white;  /* Vert pour rester dans le thème du terminal */
+  margin-right: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 #todo-list li:hover {
@@ -106,8 +131,17 @@ button:hover {
   background: #e6e6e6;
 }
 
+#todo-list li .todo-input {
+  flex-grow: 1;  /* Le texte prend tout l'espace restant */
+}
+
+#todo-list li .task-text {
+  flex-grow: 1;  /* Le texte prend tout l'espace restant */
+}
+
 /* Boutons */
 .delete-btn {
+  order: 3;
   background: none;
   border: none;
   color: #e74c3c;
@@ -122,6 +156,7 @@ button:hover {
 
 /* Checkboxes */
 .task-toggle {
+  order: 2;
   margin-right: 10px;
   transform: scale(1.2);
   cursor: pointer;

@@ -97,7 +97,7 @@ $(document).ready(function () {
       $("#todo-list").empty();
       tasks.forEach((task) => {
         const listItem = $("<li>")
-          .text(task.description)
+          .text(task.description).addClass("task-text")
           .data("id", task.id)
           .addClass(task.completed ? "completed" : "")
           .append($("<button>").text("Delete").addClass("delete-btn"))
