@@ -1,5 +1,6 @@
 const apiEndpoint = 
-  "https://backend-210-300621-alexis-girard.blacksky-0acd1103.westeurope.azurecontainerapps.io/api/tasks";
+    "webapp-210-300621-girard-alexis-dta6b3hvceexgjfg.northeurope-01.azurewebsites.net/api/tasks";
+  // "https://backend-210-300621-alexis-girard.blacksky-0acd1103.westeurope.azurecontainerapps.io/api/tasks";
 
 $(document).ready(function () {
   // Charger les tâches au démarrage

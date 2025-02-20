@@ -5,8 +5,8 @@ name: Build and deploy container app to Azure Web App - webapp-210-300621-girard
 
 on:
   push:
-    branches:
-      - main
+   paths:
+      - 'src/backend/**'
   workflow_dispatch:
 
 jobs:
