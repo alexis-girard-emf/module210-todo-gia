@@ -1,10 +1,21 @@
+/* Importation de la police Synthwave */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Ajoute la vidéo en background */
+#background-video {
+  position: fixed; /* Fixe la vidéo en arrière-plan */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assure que la vidéo couvre tout l'écran */
+  z-index: -1; /* Assure que la vidéo reste derrière le contenu */
+}
+
 /* Général */
 body {
-  font-family: "Courier New", Courier, monospace;
-  background-color: black;
-  background-image: radial-gradient(
-    rgba(0, 150, 0, 0.75), black 120%
-  );
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(to bottom, #0d002d, #160040);
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -12,42 +23,30 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  color: #333;
+  color: #ff00ff;
+  position: relative; /* Assure que les éléments du contenu soient au-dessus */
 }
 
-#nbrTaches {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-}
+/* Le reste de ton code reste inchangé */
+
 
 /* Conteneur principal */
 .app-container {
-  border: 3px solid rgba(0, 255, 0, 0.5);  /* Bordure verte, comme les anciennes interfaces de terminal */
+  border-radius: 20px;
   padding: 20px;
-  background-color: black;   /* Fond noir pour simuler un terminal */            /* Texte vert fluorescent */
-  font-family: 'Courier New', monospace; 
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);  /* Légère ombre verte pour l'effet "lueur" */
-  background: black;
-  padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom right, #0a001f, #200046);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   text-align: center;
-
+  color: white;
 }
 
 /* Titre */
 .app-container h1 {
-  text-align: left;
   font-size: 2rem;
-  margin-bottom: 1rem;
-  color: white;
+  color: #ff00ff;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff66ff;
   font-weight: bold;
 }
 
@@ -58,39 +57,39 @@ body {
   margin-bottom: 20px;
 }
 
-#todo-input::before {
-  content: ">";
-  color: white;  /* Vert pour rester dans le thème du terminal */
-  margin-right: 10px;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
 #todo-input {
-  font-family: "Courier New", Courier, monospace;
   flex: 1;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid rgba(0, 255, 0, 0.5);
+  border-radius: 10px 0px 0px 10px;
+  border: 1px solid #ff00ff;
+  background: #0d002d;
+  color: #ff66ff;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
   outline: none;
-  transition: border-color 0.3s ease;
 }
 
 #todo-input:focus {
-  border-color: #007bff;
+  border-color: #ff66ff;
+  box-shadow: 0 0 10px #ff66ff;
 }
 
-button {
+#add-btn {
   padding: 10px 15px;
-  background-color: black;
+  border-radius: 0px 10px 10px 0px;
+  background: linear-gradient(45deg, #ff0080, #ff6600);
   color: white;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-  background-color: rgba(0, 255, 0, 0.5);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
 }
 
 /* Liste des tâches */
@@ -105,76 +104,78 @@ button:hover {
   justify-content: start;
   align-items: center;
   padding: 10px 15px;
-  border: 1px solid rgba(0, 255, 0, 0.5);
+  border-radius: 10px;
+  border: 1px solid #ff00ff;
   margin-bottom: 10px;
-  background: black;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #160040;
   color: white;
 }
 
-#todo-list li::before {
-  content: ">";
-  color: white;  /* Vert pour rester dans le thème du terminal */
-  margin-right: 10px;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
 #todo-list li:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ff00ff;
 }
 
-#todo-list li.completed {
-  text-decoration: line-through;
-  color: #888;
-  background: #e6e6e6;
+.task-text {
+  flex-grow: 1; 
 }
 
-#todo-list li .todo-input {
-  flex-grow: 1;  /* Le texte prend tout l'espace restant */
-}
-
-#todo-list li .task-text {
-  flex-grow: 1;  /* Le texte prend tout l'espace restant */
-}
-
-/* Boutons */
-.delete-btn {
-  order: 3;
-  background: none;
-  border: none;
-  color: #e74c3c;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.delete-btn:hover {
-  color: #c0392b;
-}
-
-/* Checkboxes */
 .task-toggle {
-  order: 2;
-  margin-right: 10px;
-  transform: scale(1.2);
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff00ff; /* Rose néon */
+  background:transparent;
+  position: relative;
   cursor: pointer;
-  accent-color: #007bff;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Responsivité */
-@media (max-width: 480px) {
-  #todo-form {
-    flex-direction: column;
-  }
+.task-toggle:checked {
+  border-color: #ff00ff; /* Rose néon */
+}
 
-  #todo-input {
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
+.task-toggle:checked::before {
+  content: "✖";
+  color: #ff00ff;
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  button {
-    border-radius: 8px;
+.delete-btn {
+  padding: 10px 15px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #ff0080, #ff6600);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+li.completed {
+  background: linear-gradient(45deg, #00ffff, #0088ff) !important;
+  color: #ffffff !important;
+}
+
+li.completed > .task-text{
+  text-decoration: line-through;
+}
+.logo {
+  width: 350px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
   }
 }

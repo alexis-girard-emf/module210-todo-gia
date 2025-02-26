@@ -35,7 +35,7 @@ $(document).ready(function () {
     const isCompleted = $taskElement.hasClass("completed");
 
     // Récupère le texte directement comme un nœud
-    const description = $taskElement
+    const description = $taskElement.find(".task-text")
       .contents()
       .filter(function () {
         return this.nodeType === 3; // Node type 3 = texte
@@ -97,9 +97,9 @@ $(document).ready(function () {
       $("#todo-list").empty();
       tasks.forEach((task) => {
         const listItem = $("<li>")
-          .text(task.description).addClass("task-text")
           .data("id", task.id)
           .addClass(task.completed ? "completed" : "")
+          .append($("<div>").text(task.description).addClass("task-text"))
           .append($("<button>").text("Delete").addClass("delete-btn"))
           .prepend(
             $("<input>")
