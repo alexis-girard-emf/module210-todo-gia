@@ -135,6 +135,21 @@ async function fetchTaskCount() {
   }
 }
 
+// Jouer de la musique 
+const musicBtn = document.getElementById("music-btn");
+const music = document.getElementById("music");
+
+musicBtn.addEventListener("click", function() {
+  if (music.paused) {
+    music.play(); // Joue la musique si elle est en pause
+    musicBtn.innerText = "🎵 Stopper la musique"
+  } else {
+    music.pause(); // Pause la musique si elle joue déjà
+    
+    musicBtn.innerText = "🎵 Lancer la musique"
+  }
+});
+
 // Charger le nombre de tâches au démarrage de la page
 document.addEventListener("DOMContentLoaded", fetchTaskCount);
 

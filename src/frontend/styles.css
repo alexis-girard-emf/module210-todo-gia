@@ -171,6 +171,18 @@ li.completed > .task-text{
   animation: pulse 2s infinite ease-in-out;
 }
 
+#music-btn{
+  margin-top: 15px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #ff0080, #ff6600);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 @keyframes pulse {
   0%, 100% {
       transform: scale(1);
